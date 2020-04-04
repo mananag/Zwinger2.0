@@ -1,0 +1,15 @@
+<div class="log-form">
+  <h2>Login to your account</h2>
+
+  <%- include ("./partials/messages") -%>
+
+  <form action="/users/login" method="POST">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" />
+    <button type="submit" class="btn">Login</button>
+    <a class="forgot" href="#">Forgot Username?</a>
+  </form>
+</div>
+<!--end log form -->
