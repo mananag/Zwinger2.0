@@ -67,8 +67,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//static
-app.use(express.static('public'));
+
 
 
 //setting routes
@@ -78,5 +77,5 @@ app.use('/users',require('./routes/users'));
 
 
 //starting connection
-const port = 3000;
+const port = 8080;
 app.listen(port, () => console.log(`Server started on port ${port}`));
