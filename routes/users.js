@@ -2,7 +2,7 @@ const express= require('express');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router=express.Router();
-const H_user = require('../models/H_user');
+const User = require('../models/user');
 const randomstring = require('randomstring');
 const mailer = require('../misc/mailer');
 const { forwardAuthenticated } = require('../config/auth');
@@ -19,11 +19,11 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 
 router.post('/register',(req,res)=>{
-  const { fname,lname,address1,address2,city,state,pincode,email,pnum,password,password2} = req.body;
+  const { fname,lname,email,pnum,password,password2} = req.body;
 
   let errors = [];
 
-  if (!fname || !lname || !email || !password || !pnum ||  !password2 || !address1 || !address2 || !city || !state || !pincode) {
+  if (!fname || !lname || !email || !password || !pnum ||  !password2 ) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -34,38 +34,28 @@ router.post('/register',(req,res)=>{
   if (password.length < 6) {
     errors.push({ msg: 'Password must be at least 6 characters' });
   }
-  if (pincode.length != 6) {
-    errors.push({ msg: 'Pin code is wrong' });
-  }
+
 
   if (errors.length > 0) {
     res.render('register', {
       errors,
       fname,
       lname,
-      address1,
-      address2,
-      city,
-      state,
-      pincode,
+
       email,
       pnum,
       password,
       password2
     });
   } else {
-    H_user.findOne({ email: email }).then(user => {
+    User.findOne({ email: email }).then(user => {
       if (user) {
         errors.push({ msg: 'Email already exists' });
         res.render('register', {
           errors,
           fname,
           lname,
-          address1,
-          address2,
-          city,
-          state,
-          pincode,
+
           email,
           pnum,
           password,
@@ -80,14 +70,9 @@ router.post('/register',(req,res)=>{
         console.log('secretToken', secretToken);
         const active =  false ;
 
-        var newH_user= new H_user({
+        var newuser= new User({
           fname,
           lname,
-          address1,
-          address2,
-          city,
-          state,
-          pincode,
           email,
           pnum,
           password,
@@ -96,14 +81,15 @@ router.post('/register',(req,res)=>{
 
 
 
+
         });
 
 
         bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newH_user.password, salt, (err, hash) => {
+          bcrypt.hash(newuser.password, salt, (err, hash) => {
             if (err) throw err;
-            newH_user.password = hash;
-            newH_user
+            newuser.password = hash;
+            newuser
               .save()
               .then(user => {
                 req.flash(
@@ -164,7 +150,7 @@ router.route('/verify')
       const { secretToken } = req.body;
 
       // Find account with matching secret token
-      const user = await H_user.findOne({ 'secretToken': secretToken });
+      const user = await User.findOne({ 'secretToken': secretToken });
       if (!user) {
         req.flash('error', 'No user found.');
         res.redirect('/users/verify');

@@ -4,7 +4,7 @@ const {
   ensureAuthenticated,
   forwardAuthenticated
 } = require('../config/auth');
-const H_user = require('../models/H_user');
+const user = require('../models/user');
 
 // Welcome Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('index'));
@@ -18,7 +18,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
 );
 
 router.post('/search', forwardAuthenticated, (req, res) => {
-  H_user.find({
+  user.find({
     city: req.body.city
   }).then(city => {
     if (!city) {
@@ -33,6 +33,7 @@ router.post('/search', forwardAuthenticated, (req, res) => {
 
   }).catch(err => console.log(err));
 });
+
 
 
 
