@@ -25,5 +25,13 @@
     "randomstring": "^1.1.5"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwardCullen30/Zwinger2.0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EdwardCullen30/Zwinger2.0/issues"
+  },
+  "homepage": "https://github.com/EdwardCullen30/Zwinger2.0#readme",
   "description": ""
 }
