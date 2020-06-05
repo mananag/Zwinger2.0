@@ -1,4 +1,5 @@
 const express = require('express');
+const passport = require('passport');
 const router = express.Router();
 const {
   ensureAuthenticated,
@@ -16,6 +17,20 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
     lname: req.user.lname
   })
 );
+
+
+router.get("/auth/google",
+  passport.authenticate('google', { scope: ["email", " profile"] })
+);
+
+router.get("/auth/google/middle",
+  passport.authenticate('google', { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect to secrets.
+    res.redirect("/dashboard");
+  });
+
+
 
 router.post('/search', forwardAuthenticated, (req, res) => {
   user.find({

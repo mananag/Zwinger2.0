@@ -1,25 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const findOrCreate = require('mongoose-findorcreate');
+// const findOrCreate = require('findorcreate-promise');
 const userSchema = new Schema({
   fname: {
     type: String,
-    required: true
+    required: false
   },
   lname: {
     type: String,
-    required: true
+    required:false
   },
   email: {
     type: String,
-    required: true
+    required:false
   },
   pnum: {
     type:Number,
-    required: true
+    required:false
   },
   password:{
     type:String,
-    required:true
+    required:false
   },
 
   date: {
@@ -30,11 +32,17 @@ const userSchema = new Schema({
     type:String,
     required:false
   },
+  googleId:{
+    type: String,
+    required:false
+  },
   active:{
     type:Boolean
 
   }
 });
+userSchema.plugin(findOrCreate);
+// userSchema.plugin(findOrCreate);
 // Model
 const user = mongoose.model('user', userSchema);
 module.exports = user;

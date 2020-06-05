@@ -17,6 +17,10 @@ router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 // Register Page
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 
+router.get("/auth/google",
+  passport.authenticate('google', { scope: ["profile"] })
+);
+
 
 router.post('/register',(req,res)=>{
   const { fname,lname,email,pnum,password,password2} = req.body;
