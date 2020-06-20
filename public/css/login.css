@@ -1,0 +1,52 @@
+.login-container{
+    display: flex;
+    margin: 0;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+.log-form{
+    display: flex;
+    background: white;
+    border: black 1px solid;
+    min-width: 300px;
+    padding: 50px;
+    box-shadow: #00000057 -14px 13px 20px 3px;
+    flex-direction: column;
+}
+  .log-form form{
+    display: contents;
+    font-family: circular;
+    font-size: 1.1em;
+}
+  #email, #password{
+    margin: 21px 0;
+    padding: 5px;
+    border: 1px #424242 solid;
+}
+  .log-form h2{
+    margin-block-start: 0;
+    font-family: kiona;
+    font-size: 2em;
+}
+  .btn{
+    padding: 10px;
+    width: 122px;
+    font-family: Apercu;
+    font-size: 1.1em;
+    letter-spacing: 2.5px;
+    margin-bottom: 20px;
+}
+.btn-google{
+  text-decoration: none;
+  width: auto;
+  text-align: center;
+  background-color: blue;
+  color: white;
+  margin: 20px 25px;
+  border-radius: 50px;
+  margin-bottom: 0px;
+}
+body{
+  background-image: url(/images/98210.jpg);
+}

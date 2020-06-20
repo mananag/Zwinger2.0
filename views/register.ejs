@@ -1,7 +1,20 @@
 <title>Registration of Hostel</title>
 <link rel="shortcut icon" href="/images/logos/logo.png" type="image/x-icon" />
 <link rel="stylesheet" href="/fonts/material-design-iconic-font.min.css" />
-
+<link rel="stylesheet" type="text/css" href="/css/nav-footer.css">
+<link rel="stylesheet" href="/font/fonts.css">
+<header>
+  <div id="nav">
+      <div class="nav-logo"  onclick="location.href='/'">
+          <img src="/images/logos/logo(1).png">WINGER
+      </div>
+      <div class="nav-elements" style="margin-left: auto;" onclick="location.href='/'">Home</div>
+      <div class="nav-elements" onclick="location.href='/users/login'">Login</div>
+      <div class="nav-elements" onclick="location.href='/users/register'">Sign up</div>
+      <div class="nav-elements" onclick="location.href=''">Become a Host</div>
+      
+  </div>
+</header>
 
 <link rel="stylesheet" href="/css/style2.css">
 <div class="topnav">
@@ -11,9 +24,9 @@
 </div>
 <div class="wrapper" style="background-image: url('/images/home/1.jpg');">
   <div class="inner">
-    <div class="image-holder">
+    <!-- <div class="image-holder">
       <img src="/images/home/reg.jpeg" height="700px" width="800px" alt="">
-    </div>
+    </div> -->
 
     <form action="/users/register" method="POST">
       <div class="container">
@@ -59,4 +72,15 @@
         <br>
         <p>Already have an account? <a href="/users/login">Sign in</a>.</p>
       </div>
-    </form>
+    </form></div></div>
+    <footer>
+      <div class="footer">
+              <div class="footer-placeholder">
+                  <a href="#" class="logo"><img src="/images/logos/zwinger.png" alt="Logo" height="100px" width="160px"></a>
+              </div>			
+              <div class="footer-copyright">
+                  Copyright @Zwinger 2020.  All rights reserved.
+              </div>                
+        </div>
+    </footer>
+    <script src="/js/response.js"></script>
