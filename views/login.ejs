@@ -1,37 +1,43 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 <link rel="stylesheet" href="/font/fonts.css">
 <link rel="stylesheet" type="text/css" href="/css/nav-footer.css">
-<header>
-    <div id="nav">
-        <div class="nav-logo" onclick="location.href='/'">
-            <img src="/images/logos/logo(1).png">WINGER
-        </div>
-        <div class="nav-elements" style="margin-left: auto;" onclick="location.href='/'">Home</div>
-        <div class="nav-elements" onclick="location.href='/users/login'">Login</div>
-        <div class="nav-elements" onclick="location.href='/users/register'">Sign up</div>
-        <div class="nav-elements" onclick="location.href=''">Become a Host</div>
-
-    </div>
-</header>
+<link rel="stylesheet" type="text/css" href="/material-design-iconic-font/css/material-design-iconic-font.css">
 <div class="login-container"
-     style="background-image: url('/images/home/98210.jpg'); background-repeat: no-repeat; background-size: cover;">
+     style="background-image: url('/images/home/loginBack.jpg'); background-repeat: no-repeat; background-size: cover;">
     <div class="log-form">
-        <h2>Login</h2>
 
         <%- include ("./partials/messages") -%>
 
         <form action="/users/login" method="POST">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"/>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
-            <button type="submit" class="btn">Login</button>
+            <h2>Login</h2>
+            <div class="form-input">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"/>
+                <span class="input-icon" data-symbol=""></span>
+            </div>
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
+                <span class="input-icon" data-symbol=""></span>
+            </div>
             <a class="forgot" href="#">Forgot Username?</a>
+            <div class="submit">
+                <div class="submit-background">                </div>
+                    <button class="btn" type="submit">
+                        Login
+                    </button>
+            </div>
+            <div class="text1">Or Sign up Using</div>
+            <a class="btn-block btn-social btn-google" href="/auth/google" role="button">
+                <div class="google-logo"><img src="/images/logos/google.png" width="28px"></div>
+            </a>
+            <div class="text1">
+                Or
+                <div class="text2" onclick="location.href='/users/register'">
+                    Register Now
+                </div>
+            </div>
         </form>
-        <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
-            <i class="fab fa-google"></i>
-            Sign In with Google
-        </a>
     </div>
 </div>
 <!-- <div class="log-form">
@@ -50,15 +56,3 @@
 </div> -->
 <!--end log form -->
 
-
-<footer>
-    <div class="footer">
-        <div class="footer-placeholder">
-            <a href="#" class="logo"><img src="/images/logos/zwinger.png" alt="Logo" height="100px" width="160px"></a>
-        </div>
-        <div class="footer-copyright">
-            Copyright @Zwinger 2020. All rights reserved.
-        </div>
-    </div>
-</footer>
-<script src="/js/response.js"></script>

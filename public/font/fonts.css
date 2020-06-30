@@ -14,3 +14,11 @@
     font-family: 'Circular';
     src: url("CircularStd-Book.ttf")
 }
+@font-face {
+    font-family: Poppins;
+    src: url("./Poppins-Medium.ttf");
+}
+@font-face {
+    font-family: Poppins-Bold;
+    src: url("./Poppins-Bold.ttf");
+}
