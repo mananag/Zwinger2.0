@@ -6,46 +6,107 @@
 <link rel="stylesheet" type="text/css" href="/css/nav-footer.css">
 <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
 <header>
-    <div id="nav">
-        <div class="nav-logo"  onclick="location.href='/'">
+    <div id="nav" class="dashboard" style="background: none">
+        <div class="nav-logo" onclick="location.href='/'">
             <img src="/images/logos/logo(1).png">WINGER
         </div>
         <div class="nav-elements" style="margin-left: auto;" onclick="location.href='/'">Hi, <%= fname %></div>
-        <div class="nav-elements" onclick="location.href='/'">Help</div>
         <div class="nav-elements signup" onclick="location.href='/users/logout'">Logout</div>
     </div>
 </header>
 <main>
-    <div class="container">
-        <div class="text-container">
-            Search for a<br>
-            hotel for<br>
-            your Pet
-        </div>
-        <div class="profile">
-            <img src="/images/placeholder.png" style="width: 40vh">
-        </div>
-        <form action="/search" class="search-input">
-            <div class="search-elements" style="margin: 0 25px 0 0 ">
-                <label for = 'initial-date'>Initial Date</label>
-                <input type="text" placeholder="Add Date" name="initial-date" id="initial-date" class="form-control" required>
+    <div class="container"
+         style="background-image: url('/images/home/dashBack.jpg'); background-repeat: no-repeat; background-size: cover; background-position: bottom">
+        <div class="side-navbar">
+            <div class="elements">
+                My Dashboard
             </div>
-            <div class="search-elements">
-                <label for = 'initial-date'>Initial Date</label>
-                <input type="text" placeholder="Add Date" name="initial-date" id="initial-date" class="form-control" required>
+            <div class="elements">
+                Account
             </div>
-            <button id="search">Search</button>
-        </form>
+            <div class="elements">
+                Payment
+            </div>
+            <div class="elements">
+                Complaints
+            </div>
+            <div class="elements">
+                Support
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="profile-column">
+                <div class="profile-photo">
+                    <img src="/images/placeholder.png" style="width: 35vh">
+                </div>
+                <form class="profile-edit">
+                    <h3>
+                        My Profile
+                    </h3>
+                    <label for="name"></label>
+                    <input class="profile-info" id="name" value="<%= fname %> <%= lname %>">
+                    <label for="mobile"></label>
+                    <input class="profile-info" id="mobile" value="+91-8000007505">
+                    <label for="profile-email"></label>
+                    <input class="profile-info" id="profile-email" value="abcd@gmail.coom">
+                    <button type="submit" class="saveEdits">Save</button>
+                </form>
+            </div>
+            <div class="pet-column">
+                <div class="petHeader">
+                    <h3>My Pets</h3>
+                    <button class="editButton">
+                        Edit
+                    </button>
+                </div>
+                <div class="petList">
+                    <img src="/images/logos/dogPlaceholder.png" style="width: 40px; height: 40px">
+                    <h4>Tommy</h4>
+                    <img src="/images/logos/arrowRight.png" style="width: auto; margin-left: auto; " class="expand">
+                    <div class="details" >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+                <div class="petList">
+                    <img src="/images/logos/dogPlaceholder.png" style="width: 40px; height: 40px ">
+                    <h4>Tuffy</h4>
+                    <img src="/images/logos/arrowRight.png" style="width: auto; margin-left: auto; " class="expand">
+                    <div class="details" >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </div>
+                </div>
+            </div>
+            <!--            <div class="bill-column">-->
+            <!--                <div class="petHeader">-->
+            <!--                    <h3>My Bills</h3>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
     </div>
+    <!--    <div class="container" style="background-image: url('/images/home/dashBack.jpg'); background-repeat: no-repeat; background-size: cover; background-position: bottom">-->
+    <!--        <div class="text-container">-->
+    <!--            Search for a<br>-->
+    <!--            hotel for<br>-->
+    <!--            your Pet-->
+    <!--        </div>-->
+    <!--        <div class="profile">-->
+    <!--            <img src="/images/placeholder.png" style="width: 40vh">-->
+    <!--        </div>-->
+    <!--        <form action="/search" class="search-input">-->
+    <!--            <div class="search-elements" style="margin: 0 25px 0 0 ">-->
+    <!--                <label for = 'initial-date'>Initial Date</label>-->
+    <!--                <input type="text" placeholder="Add Date" name="initial-date" id="initial-date" class="form-control" required>-->
+    <!--            </div>-->
+    <!--            <div class="search-elements">-->
+    <!--                <label for = 'initial-date'>Initial Date</label>-->
+    <!--                <input type="text" placeholder="Add Date" name="initial-date" id="initial-date" class="form-control" required>-->
+    <!--            </div>-->
+    <!--            <button id="search">Search</button>-->
+    <!--        </form>-->
+    <!--    </div>-->
 </main>
-<footer>
-    <div class="footer">
-        <div class="footer-placeholder">
-            <a href="#" class="logo"><img src="/images/logos/zwinger.png" alt="Logo" height="100px" width="160px"></a>
-        </div>
-        <div class="footer-copyright">
-            Copyright @Zwinger 2020. All rights reserved.
-        </div>
-    </div>
-</footer>
-<script src="/js/response.js"></script>
+<script src="/js/dashboard.js"></script>
